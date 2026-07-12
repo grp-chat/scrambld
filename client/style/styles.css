@@ -159,3 +159,63 @@ header {
 
 #phase-play { max-width: 1200px; background: transparent; border: none; box-shadow: none; padding: 0; }
 .hidden { display: none !important; }
+
+
+/* Header Layout */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #1e293b; /* Sleek dark slate background */
+    color: #ffffff;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Abstract Matrix Mini Icon (Pure CSS Variant) */
+.matrix-logo-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    transform: rotate(-10deg); /* Gives it that dynamic, shifting vibe */
+}
+
+.matrix-logo-icon .block {
+    border-radius: 3px;
+}
+.matrix-logo-icon .blue   { background-color: #2563eb; }
+.matrix-logo-icon .green  { background-color: #16a34a; }
+.matrix-logo-icon .orange { background-color: #ea580c; }
+.matrix-logo-icon .dark   { background-color: #475569; }
+
+/* Text Typography */
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8; /* Clean, muted slate text for your name */
+    margin: 2px 0 0 0;
+    letter-spacing: 0.5px;
+}

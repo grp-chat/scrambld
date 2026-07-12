@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scrambld Playboard</title>
     <link rel="stylesheet" href="style/playboard.css">
 </head>
+
 <body>
     <div id="playboard-container">
-        <div id="toolbar">
-    <button id="btn-add-table">➕ Add Table</button>
-    <button id="btn-add-chair">🪑 Add Chair</button>
-    <button id="btn-scramble-tables" style="background: #e67e22;">🎲 Scramble Tables</button>
-    <button id="btn-scramble-chairs" style="background: #d35400;">🎲 Scramble Chairs</button>
-    <button id="btn-lock" class="lock-btn">🔓 Unlocked</button>
-    <button id="btn-home" onclick="window.location.href='/'">🏠 Main Menu</button>
-</div>
+    <div id="toolbar">
+        <button id="btn-add-table">➕ Add Table</button>
+        <button id="btn-add-chair">🪑 Add Chair</button>
+        <button id="btn-scramble-tables" style="background: #e67e22;">🎲 Scramble Tables</button>
+        <button id="btn-scramble-chairs" style="background: #d35400;">🎲 Scramble Chairs</button>
+        <button id="btn-lock" class="lock-btn">🔓 Unlocked</button>
+        <button id="btn-home" onclick="window.location.href='/'">🏠 Main Menu</button>
 
-        <div id="canvas-grid" class="grid-background"></div>
+        <!-- Pushed directly to the right side -->
+        <div class="pb-branding">
+            <div class="pb-matrix-icon">
+                <span class="pb-block pb-blue"></span>
+                <span class="pb-block pb-green"></span>
+                <span class="pb-block pb-orange"></span>
+                <span class="pb-block pb-dark"></span>
+            </div>
+            <div class="pb-text-group">
+                <span class="pb-brand">Scrambld</span>
+                <span class="pb-tagline">Coach Andrew</span>
+            </div>
+        </div>
     </div>
 
+    <div id="canvas-grid" class="grid-background"></div>
+</div>
+
     <script src="js/playboard.js"></script>
-    <script src="js/sync.js"></script>  </body>
+    <script src="js/sync.js"></script>
+</body>
+
 </html>
 </body>
+
 </html>

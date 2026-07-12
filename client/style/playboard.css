@@ -20,7 +20,7 @@ body, html {
 }
 
 /* Toolbar Styling */
-#toolbar {
+#toolbar2 {
     background: #2a2b36;
     padding: 12px;
     display: flex;
@@ -28,6 +28,66 @@ body, html {
     align-items: center;
     border-bottom: 2px solid #3e3f4b;
     z-index: 10;
+}
+
+/* Update your toolbar to handle alignment */
+#toolbar {
+    display: flex;
+    align-items: center; /* Vertically aligns buttons and logo down the middle */
+    gap: 10px;           /* Keeps clean spacing between your action buttons */
+    padding: 10px 15px;
+    background-color: #1e293b; /* Sleek background color */
+}
+
+/* This is the magic rule that shoves the branding wrapper to the right */
+.pb-branding {
+    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 15px;
+}
+
+/* Miniature Abstract Matrix Icon layout */
+.pb-matrix-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-10deg);
+}
+
+.pb-matrix-icon .pb-block {
+    border-radius: 2px;
+}
+.pb-matrix-icon .pb-blue   { background-color: #2563eb; }
+.pb-matrix-icon .pb-green  { background-color: #16a34a; }
+.pb-matrix-icon .pb-orange { background-color: #ea580c; }
+.pb-matrix-icon .pb-dark   { background-color: #94a3b8; }
+
+/* Text Stack Setup */
+.pb-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.pb-brand {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.pb-tagline {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #94a3b8; /* Muted slate for your name tag */
+    line-height: 1;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
 }
 
 button {
