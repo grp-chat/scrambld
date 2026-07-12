@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrambld 🍳</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/settings.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Scrambld 🍳</h1>
+    </header>
+
+    <main id="app-container">
+        <section id="main-menu" class="menu-phase">
+            <h2>Select Your Screen Role</h2>
+            <p>Choose whether this device will manage settings or display the board.</p>
+            <div class="menu-options-row">
+                <button id="btn-goto-settings" class="btn-main-choice">⚙ Settings Mode</button>
+                <button id="btn-goto-playboard" class="btn-main-choice">📺 Playboard Mode</button>
+            </div>
+        </section>
+
+        <section id="phase-settings" class="menu-phase hidden">
+            <h2>Classroom Settings</h2>
+            
+            <div class="config-group">
+                <label>Student Roster (One per line):</label>
+                <textarea id="student-names-input" placeholder="Enter student names..."></textarea>
+                
+                <div class="roster-management-bar">
+                    <input type="text" id="input-save-name" placeholder="Class Name (e.g., Period 1)">
+                    <button id="btn-save-roster">💾 Save Roster</button>
+                </div>
+                
+                <div class="roster-load-bar">
+                    <label for="select-saved-rosters">Load Class:</label>
+                    <select id="select-saved-rosters">
+                        <option value="">-- Select a Saved Class --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="config-row">
+                <label for="input-tables-count">Number of Tables:</label>
+                <input type="number" id="input-tables-count" value="6" min="1">
+            </div>
+            <div class="config-row">
+                <label for="input-seats-per-table">Seats per Table:</label>
+                <input type="number" id="input-seats-per-table" value="4" min="1">
+            </div>
+            
+            <div class="buttons-group">
+                <button id="btn-settings-back" class="btn-back">⬅ Back to Menu</button>
+                
+            </div>
+        </section>
+
+        <section id="phase-play" class="menu-phase hidden">
+            <div id="classroom-grid"></div>
+        </section>
+    </main>
+
+    <div id="controller-panel" class="hidden">
+        <button id="btn-scramble">Scramble Seats! 🎲</button>
+        <button id="btn-back-to-menu">Main Menu 🏠</button>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/settings.js"></script> </body>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrambld Playboard</title>
+    <link rel="stylesheet" href="style/playboard.css">
+</head>
+<body>
+    <div id="playboard-container">
+        <div id="toolbar">
+    <button id="btn-add-table">➕ Add Table</button>
+    <button id="btn-add-chair">🪑 Add Chair</button>
+    <button id="btn-scramble-tables" style="background: #e67e22;">🎲 Scramble Tables</button>
+    <button id="btn-scramble-chairs" style="background: #d35400;">🎲 Scramble Chairs</button>
+    <button id="btn-lock" class="lock-btn">🔓 Unlocked</button>
+    <button id="btn-home" onclick="window.location.href='/'">🏠 Main Menu</button>
+</div>
+
+        <div id="canvas-grid" class="grid-background"></div>
+    </div>
+
+    <script src="js/playboard.js"></script>
+    <script src="js/sync.js"></script>  </body>
+</html>
+</body>
+</html>

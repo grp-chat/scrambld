@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary-color: #ff6b6b;
+    --primary-hover: #fa5252;
+    --secondary-color: #4cc9f0;
+    --secondary-hover: #4895ef;
+    --text-main: #2b2d42;
+    --text-muted: #8d99ae;
+    --border-color: #e2e8f0;
+    --desk-color: #ffd166;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--card-bg);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#app-container {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.menu-phase {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.menu-phase h2 {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.menu-phase p {
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* --- THE TWO MAIN DASHBOARD BUTTONS --- */
+.menu-options-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.btn-main-choice {
+    flex: 1;
+    padding: 2rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-main-choice:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    background-color: #fffafb;
+}
+
+/* --- GRID ARRANGEMENTS --- */
+#classroom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.table-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.table-header {
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px dashed var(--border-color);
+}
+
+.seats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.seat {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 0.4rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.seat.occupied {
+    background-color: var(--desk-color);
+    border-color: #f4a261;
+}
+
+/* --- CONTROL PANEL FLOATER --- */
+#controller-panel {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+#controller-panel button {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-scramble { background-color: var(--primary-color); color: white; }
+#btn-back-to-menu { background-color: #6c757d; color: white; }
+
+#phase-play { max-width: 1200px; background: transparent; border: none; box-shadow: none; padding: 0; }
+.hidden { display: none !important; }
