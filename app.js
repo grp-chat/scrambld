@@ -83,13 +83,9 @@ io.on("connection", async (socket) => {
     });
 });
 
-// --- HYBRID RUNTIME ENGINE EXECUTION WRAPPER ---
-if (typeof Deno !== "undefined") {
-    // Use Deno's native server wrapper to bind Express + WebSockets seamlessly
-    Deno.serve({ port: 8000 }, server); 
-} else {
-    const PORT = process.env.PORT || 3000;
-    server.listen(PORT, () => {
-        console.log(`Local Node server spinning at http://localhost:${PORT}`);
-    });
-}
+// --- UNIFIED SERVER EXECUTION ENGINE ---
+// Works flawlessly on both local Node.js and Deno Deploy
+const PORT = process.env.PORT || 8000; 
+server.listen(PORT, () => {
+    console.log(`Server spinning live at http://localhost:${PORT}`);
+});
