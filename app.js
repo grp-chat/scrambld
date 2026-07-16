@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "node:http";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const app = express();
 const server = createServer(app);
@@ -10,7 +12,13 @@ const io = new Server(server, {
     cors: { origin: "*" }
 });
 
-app.use(express.static("client"));
+// --- UNIVERSAL STATIC FOLDER RESOLVER ---
+// Node.js (Render/Replit) needs an absolute path, Deno Deploy resolves relative paths fine.
+const staticPath = typeof Deno === "undefined"
+    ? path.join(path.dirname(fileURLToPath(import.meta.url)), "client")
+    : "client";
+
+app.use(express.static(staticPath));
 app.use(express.json());
 
 // --- GITHUB SAVE & OVERWRITE ROUTE ---
@@ -20,7 +28,12 @@ app.post('/api/save-roster', async (req, res) => {
 
     const filename = className.toLowerCase().replace(/[^a-z0-9]/g, '-') + '.txt';
     const targetUrl = `https://api.github.com/repos/grp-chat/textfiles/contents/${filename}`;
-    const base64Content = Buffer.from(rosterText).toString('base64');
+    
+    // Cross-platform base64 encoding that works flawlessly in both Node.js and Deno
+    const base64Content = typeof btoa !== "undefined" 
+        ? btoa(rosterText) 
+        : Buffer.from(rosterText).toString('base64');
+
     const headers = {
         'Authorization': `token ${process.env.GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
@@ -84,7 +97,6 @@ io.on("connection", async (socket) => {
 });
 
 // --- UNIFIED SERVER EXECUTION ENGINE ---
-// Works flawlessly on both local Node.js and Deno Deploy
 const PORT = process.env.PORT || 8000; 
 server.listen(PORT, () => {
     console.log(`Server spinning live at http://localhost:${PORT}`);
